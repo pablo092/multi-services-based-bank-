@@ -1,0 +1,188 @@
+{
+    "info": {
+        "name": "MultiServiceBank API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Postman collection for testing the MultiServiceBank API"
+    },
+    "item": [
+        {
+            "name": "Get All Accounts",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/accounts",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "accounts"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Account by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/accounts/:id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "accounts",
+                        ":id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Account",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"number\": \"12345\", \"type\": \"savings\", \"initialAmount\": 1000.0, \"active\": true, \"clientId\": 1}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/accounts",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "accounts"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update Account",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\": 1, \"number\": \"67890\", \"type\": \"current\", \"initialAmount\": 1500.0, \"active\": true, \"clientId\": 1}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/accounts/:id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "accounts",
+                        ":id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Account",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/accounts/:id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "accounts",
+                        ":id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get All Transactions",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/transactions",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "transactions"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Transaction",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"date\": \"2024-01-01\", \"type\": \"credit\", \"amount\": 200.0, \"balance\": 1200.0, \"accountId\": 1}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/transactions",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "transactions"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Transactions Report",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/transactions/clients/:clientId/report?dateTransactionStart=2024-01-01&dateTransactionEnd=2024-12-31",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "transactions",
+                        "clients",
+                        ":clientId",
+                        "report"
+                    ],
+                    "query": [
+                        {
+                            "key": "dateTransactionStart",
+                            "value": "2024-01-01"
+                        },
+                        {
+                            "key": "dateTransactionEnd",
+                            "value": "2024-12-31"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
